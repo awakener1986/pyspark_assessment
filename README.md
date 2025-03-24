@@ -43,7 +43,7 @@ from_unixtime(col("merch_eff_time")/1000000,"MM-dd-yyyy HH:mm:ss").alias("Mercha
 ```
 
 
-**Name Derivation:**
+**Name Derivation**
 
 Method of cleaning up data is using regex to remove special chars like ,@! and to be replace with " " similar to what has been described on Data Quality Assurance section 
 
@@ -51,5 +51,11 @@ Method of cleaning up data is using regex to remove special chars like ,@! and t
 withColumn("First Name", split(col("Person Name"), " ").getItem(0)).\
 withColumn("Last Name", split(col("Person Name"), " ").getItem(1))
 ```
+
+**Visualization and Analysis**
+
+For visualization and analysis I made use of apache superset ( open-source lightweight visualization tool https://superset.apache.org/docs/intro ) , to import the results of the data-set and build a simple dashboard 
+
+![Screenshot 2025-03-25 020614](https://github.com/user-attachments/assets/18e61fe0-dd11-486c-ac3b-6fa298140a6a)
 
 
