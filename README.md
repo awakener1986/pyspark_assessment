@@ -70,6 +70,6 @@ Pie chart to show spendings done based on merchant_category
 
 Similar analytics as the map chart but in a bar chart format to be able to clearly see which state contributes to most spending 
 
-***Credit Card Spending by Maerchant***
+***Credit Card Spending by Merchant***
 
 Display which merchant contributes to most spending done 
