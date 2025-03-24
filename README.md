@@ -25,16 +25,16 @@ regexp_replace(regexp_replace(col('personal_detail.person_name'), ",|@|\||!|/|\.
 
 to parse personal_detail and personal_detail_address into a schema for the inner json to be able to flatten the json into one row 
 ``` 
-    .withColumn("personal_detail", from_json("personal_detail", personal_detail_schema))\
-    .withColumn("personal_detail_address", from_json("personal_detail.address", address_schema))\
+.withColumn("personal_detail", from_json("personal_detail", personal_detail_schema))\
+.withColumn("personal_detail_address", from_json("personal_detail.address", address_schema))\
 ```
 
 **Timestamp Conversion**
 
 For timestamp convertion of the merch_last_update_time and merch_eff_time used the following logic to convert from unix timestemp ( assumptions: that merch_last_update_time were in miliseconds and merch_eff_time is in microseconds , and also the dates now looks more in line with the data )
 ``` 
-            from_unixtime(col("merch_last_update_time")/1000,"MM-dd-yyyy HH:mm:ss").alias("Merchant Last Update Time"),\
-            from_unixtime(col("merch_eff_time")/1000000,"MM-dd-yyyy HH:mm:ss").alias("Merchant Effective Registration Time"),\
+from_unixtime(col("merch_last_update_time")/1000,"MM-dd-yyyy HH:mm:ss").alias("Merchant Last Update Time"),\
+from_unixtime(col("merch_eff_time")/1000000,"MM-dd-yyyy HH:mm:ss").alias("Merchant Effective Registration Time"),\
 ```
 
 **Name Derivation:**
@@ -42,8 +42,8 @@ For timestamp convertion of the merch_last_update_time and merch_eff_time used t
 Method of cleaning up data is using regex to remove special chars like ,@! and to be replace with " " similar to what has been described on Data Quality Assurance section 
 
 ``` 
-            withColumn("First Name", split(col("Person Name"), " ").getItem(0)).\
-            withColumn("Last Name", split(col("Person Name"), " ").getItem(1))
+withColumn("First Name", split(col("Person Name"), " ").getItem(0)).\
+withColumn("Last Name", split(col("Person Name"), " ").getItem(1))
 ```
 
 
