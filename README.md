@@ -60,5 +60,16 @@ For visualization and analysis I made use of apache superset ( open-source light
 
 ***Credit Card Spending by State***
 
-This was derived from the merchant zip code which does a left join to the uszipcode reference table to determine the US state 
+This was derived from the merchant zip code which does a left join to the uszipcode reference table to determine the US state to be able to display it on a map  
 
+***Credit Card Spending by State***
+
+Pie chart to show spendings done based on merchant_category 
+
+***Credit Card Spending by State Bar Chart***
+
+Similar analytics as the map chart but in a bar chart format to be able to clearly see which state contributes to most spending 
+
+***Credit Card Spending by Maerchant***
+
+Display which merchant contributes to most spending done 
