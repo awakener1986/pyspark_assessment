@@ -58,4 +58,7 @@ For visualization and analysis I made use of apache superset ( open-source light
 
 ![Screenshot 2025-03-25 020614](https://github.com/user-attachments/assets/18e61fe0-dd11-486c-ac3b-6fa298140a6a)
 
+***Credit Card Spending by State***
+
+This was derived from the merchant zip code which does a left join to the uszipcode reference table to determine the US state 
 
