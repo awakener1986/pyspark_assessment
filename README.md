@@ -5,6 +5,8 @@ In this repo is the pyspark assessment answers for Python Developer (Data Engine
 * passcode.txt - passcode used to run aes_encyrpt on PII data 
 * uszips.csv - reference data for us zipcodes to determine US state
 
+
+
 **Handling PII Data**
 
 for Handling PII data aes_encrypt function to obfuscate PII data , by passing in a passcode. data can be decrypted by using this function with the same passcode https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.aes_decrypt.html
@@ -12,6 +14,7 @@ for Handling PII data aes_encrypt function to obfuscate PII data , by passing in
 ```
 aes_encrypt(cc_num, '"+str(passcode)+"', 'ECB', 'PKCS')
  ```
+
 
 **Data Quality Assurance**
 
@@ -21,6 +24,7 @@ for Data Quality , we have identified that the personal_detail.person_name field
 regexp_replace(regexp_replace(col('personal_detail.person_name'), ",|@|\||!|/|\."," "),"\s+"," ").alias('Person Name')
 ```
 
+
 **JSON Flattening**
 
 to parse personal_detail and personal_detail_address into a schema for the inner json to be able to flatten the json into one row 
@@ -29,6 +33,7 @@ to parse personal_detail and personal_detail_address into a schema for the inner
 .withColumn("personal_detail_address", from_json("personal_detail.address", address_schema))\
 ```
 
+
 **Timestamp Conversion**
 
 For timestamp convertion of the merch_last_update_time and merch_eff_time used the following logic to convert from unix timestemp ( assumptions: that merch_last_update_time were in miliseconds and merch_eff_time is in microseconds , and also the dates now looks more in line with the data )
@@ -36,6 +41,7 @@ For timestamp convertion of the merch_last_update_time and merch_eff_time used t
 from_unixtime(col("merch_last_update_time")/1000,"MM-dd-yyyy HH:mm:ss").alias("Merchant Last Update Time"),\
 from_unixtime(col("merch_eff_time")/1000000,"MM-dd-yyyy HH:mm:ss").alias("Merchant Effective Registration Time"),\
 ```
+
 
 **Name Derivation:**
 
